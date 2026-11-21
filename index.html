@@ -34,11 +34,11 @@ section{padding:clamp(64px,9vw,120px) 0}
 @keyframes spin{to{transform:rotate(360deg)}}
 /* nav */
 nav{position:sticky;top:0;background:rgba(7,5,6,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:30}
-nav .wrap{display:flex;align-items:center;gap:24px;min-height:68px;flex-wrap:wrap}
+nav .wrap{max-width:1400px;padding:0 clamp(18px,3vw,40px);display:flex;align-items:center;gap:24px;min-height:68px;flex-wrap:wrap}
 .logo{font:700 15px var(--head);letter-spacing:.24em;text-decoration:none;margin-right:auto;white-space:nowrap}
 .logo i{color:var(--rose);font-style:normal}
-.links{display:flex;gap:22px;flex-wrap:wrap}
-.links a{font:500 12px var(--mono);letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:8px 0}
+.links{display:flex;gap:18px;flex-wrap:nowrap}
+.links a{font:500 11.5px var(--mono);letter-spacing:.12em;white-space:nowrap;text-transform:uppercase;text-decoration:none;color:var(--mute);padding:8px 0}
 .links a:hover{color:var(--ink)}
 .lang{display:flex;border:1px solid var(--line)}
 .lang button{all:unset;cursor:pointer;font:700 12px var(--mono);letter-spacing:.15em;padding:0 14px;height:36px;display:grid;place-items:center;color:var(--mute)}
@@ -105,10 +105,29 @@ h1 b{background:linear-gradient(95deg,#fff 0%,#f6c9d4 35%,var(--rose) 70%,#b8264
 .tools li:last-child{border:0}
 .tools li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--rose);flex:none;transform:translateY(-2px)}
 /* formation */
-.edu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px}
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:48px}
 .edu .big{font:700 46px/1 var(--head);color:var(--ink);margin:16px 0 6px}
 .edu .big i{font-style:normal;color:var(--rose)}
 .edu p{color:var(--mute);margin:0;font-size:15px}
+/* certifications */
+.al{font-size:clamp(48px,8vw,104px);letter-spacing:-.04em}
+.al em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px rgba(232,96,127,.75)}
+.cwrap{position:relative;max-width:1340px;margin:56px auto 0;padding:0 max(5vw,18px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center}
+.ctrack{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px}
+.ctrack::-webkit-scrollbar{display:none}
+.carr{all:unset;cursor:pointer;width:56px;height:56px;border:1px solid var(--line);background:rgba(16,10,12,.85);display:grid;place-items:center;font-size:20px;color:var(--ink)}
+.carr:hover{border-color:var(--rose)}
+.cc{flex:none;width:clamp(280px,30vw,400px);scroll-snap-align:start;background:rgba(16,10,12,.82);border:1px solid rgba(140,28,58,.45);padding:28px 30px 24px;display:flex;flex-direction:column;transition:border-color .3s,transform .3s}
+.cc:hover{border-color:var(--rose);transform:translateY(-4px)}
+.cc .top{display:flex;justify-content:space-between;font:500 13px var(--mono);letter-spacing:.14em;color:var(--mute);margin-bottom:22px}
+.cc .top b{color:var(--rose);font-weight:500}
+.cc .img{all:unset;cursor:zoom-in;display:block;aspect-ratio:1.414;background:#fff;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.cc .img img,.cc .img svg{width:100%;height:100%;object-fit:cover}
+.cc .lab{margin:24px 0 10px;font-size:12px}
+.cc h3{font-size:clamp(24px,2.2vw,30px);margin-bottom:14px}
+.cc p{color:#c7bbbf;margin:0 0 22px;font-size:15.5px}
+.cc .foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font:500 11.5px var(--mono);letter-spacing:.14em;color:var(--mute);flex-wrap:wrap}
+#certdlg{width:min(1100px,96vw)}#certdlg .cvpage img{background:#fff}
 /* asso */
 .asso{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:48px}
 .acard{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:rgba(16,10,12,.85)}
@@ -147,7 +166,7 @@ dialog::backdrop{background:rgba(4,2,3,.86);backdrop-filter:blur(4px)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chips span{font:500 12.5px var(--mono);border:1px solid var(--line);padding:5px 12px;border-radius:99px;color:#d6cbce}
 .x{position:sticky;top:0;float:right;margin:14px 14px 0 0;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#160d10;color:#fff;font-size:20px;cursor:pointer;z-index:3}
-@media(max-width:1180px){.links{display:none}}
+@media(max-width:1300px){.links{display:none}}
 @media(max-width:1000px){
  .hero .wrap,.mgrid{grid-template-columns:minmax(0,1fr)}
  .orb{max-width:300px;order:-1;margin:20px 0 10px}
@@ -158,7 +177,7 @@ dialog::backdrop{background:rgba(4,2,3,.86);backdrop-filter:blur(4px)}
  dialog{max-height:none}.mgrid{max-height:none}}
 @media(max-width:640px){
  .xp,.edu,.asso,.tools{grid-template-columns:minmax(0,1fr)}
- .edu .box{grid-column:auto!important}.lng{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .edu .box{grid-column:auto!important}.cwrap{grid-template-columns:minmax(0,1fr);padding:0}.carr{display:none}.ctrack{padding:4px max(5vw,18px)}.lng{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  .btn{padding:0 22px;font-size:12px}
  .stats div{padding:20px 16px}
  .pause{display:none}}
@@ -174,6 +193,7 @@ dialog::backdrop{background:rgba(4,2,3,.86);backdrop-filter:blur(4px)}
   <a href="#experience"><span class="fr">Expérience</span><span class="en">Experience</span></a>
   <a href="#competences"><span class="fr">Compétences</span><span class="en">Skills</span></a>
   <a href="#formation"><span class="fr">Formation</span><span class="en">Education</span></a>
+  <a href="#certifs">Certifications</a>
   <a href="#asso"><span class="fr">Vie associative</span><span class="en">Student life</span></a>
   <a href="#cv">CV</a>
   <a href="#contact">Contact</a>
@@ -246,12 +266,10 @@ dialog::backdrop{background:rgba(4,2,3,.86);backdrop-filter:blur(4px)}
 </div></section>
 
 <section id="formation"><div class="wrap">
- <h2><span class="fr">Formation &amp; certifications</span><span class="en">Education &amp; certifications</span></h2>
+ <h2><span class="fr">Formation</span><span class="en">Education</span></h2>
  <div class="edu">
   <div class="box"><span class="pill">2024 – 2027</span><h3 style="font-size:23px;margin:18px 0 6px"><span class="fr">Diplôme d’ingénieur, génie mécanique et production</span><span class="en">Engineering degree, mechanical &amp; production</span></h3><p>ENISo, Sousse · <span class="fr">option Production &amp; Supply Chain</span><span class="en">Production &amp; Supply Chain track</span></p></div>
   <div class="box"><span class="pill">2022 – 2024</span><h3 style="font-size:23px;margin:18px 0 6px"><span class="fr">Classes préparatoires, mathématiques et physique</span><span class="en">Preparatory classes, maths &amp; physics</span></h3><p>IPEIM, Monastir</p></div>
-  <div class="box"><span class="pill">06/2026</span><div class="big">960<i>/990</i></div><p>TOEIC · Listening 495 · Reading 465</p></div>
-  <div class="box"><span class="pill">SOLIDWORKS</span><div class="big"><i>CSWP</i></div><p>Certified SolidWorks Professional</p></div>
   <div class="box" style="grid-column:span 2"><span class="pill"><span class="fr">LANGUES</span><span class="en">LANGUAGES</span></span>
    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px" class="lng">
     <div><div class="big" style="font-size:30px;margin:0"><span class="fr">Natif</span><span class="en">Native</span></div><p><span class="fr">Arabe</span><span class="en">Arabic</span></p></div>
@@ -260,6 +278,15 @@ dialog::backdrop{background:rgba(4,2,3,.86);backdrop-filter:blur(4px)}
     <div><div class="big" style="font-size:30px;margin:0">A2</div><p><span class="fr">Espagnol</span><span class="en">Spanish</span></p></div>
    </div></div>
  </div>
+</div></section>
+
+<section id="certifs"><div class="wrap">
+ <h2 class="al"><span class="fr">Toujours <em>apprendre.</em></span><span class="en">Always <em>learning.</em></span></h2>
+</div>
+<div class="cwrap">
+ <button type="button" class="carr" id="cprev" aria-label="Précédent">←</button>
+ <div class="ctrack" id="ctrack"></div>
+ <button type="button" class="carr" id="cnext" aria-label="Suivant">→</button>
 </div></section>
 
 <section id="asso"><div class="wrap">
@@ -306,6 +333,7 @@ dialog::backdrop{background:rgba(4,2,3,.86);backdrop-filter:blur(4px)}
 <footer><div class="wrap">© 2026 SARRA BZEOUICH · PORTFOLIO</div></footer>
 
 <dialog id="cvdlg"><button class="x" type="button" aria-label="Fermer" style="position:absolute;right:0;float:none">×</button><div class="cvpage"><img src="cv-1.jpg" alt="CV de Sarra Bzeouich"></div></dialog>
+<dialog id="certdlg"><button class="x" type="button" aria-label="Fermer" style="position:absolute;right:0;float:none">×</button><div class="cvpage"><img alt=""></div></dialog>
 <dialog id="dlg"><button class="x" type="button" aria-label="Fermer">×</button><div class="mgrid"><div class="media" id="dm"></div><div class="mtext" id="dt"></div></div></dialog>
 
 <script>
@@ -405,11 +433,27 @@ const close=()=>{dlg.close();clearInterval(showT);const v=dm.querySelector('vide
 dlg.querySelector('.x').onclick=close;dlg.addEventListener('click',e=>{if(e.target===dlg)close()});dlg.addEventListener('close',()=>{clearInterval(showT);const v=dm.querySelector('video');if(v)v.pause()});
 /* language */
 const btns=document.querySelectorAll('.lang button');
-const setL=l=>{L=l;document.documentElement.lang=l;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.l==l));const s=track.scrollLeft;render();track.scrollLeft=s;try{localStorage.setItem('sb-lang',l)}catch(e){}};
+const setL=l=>{L=l;document.documentElement.lang=l;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.l==l));const s=track.scrollLeft;render();track.scrollLeft=s;try{renderCerts()}catch(e){}try{localStorage.setItem('sb-lang',l)}catch(e){}};
 btns.forEach(b=>b.onclick=()=>setL(b.dataset.l));
 try{const s=localStorage.getItem('sb-lang');if(s&&s!=L)setL(s)}catch(e){}
 /* copy */
 const cp=document.getElementById('copy');cp.onclick=async()=>{try{await navigator.clipboard.writeText('sarrabzouich@gmail.com');cp.innerHTML=L=='en'?'Copied':'Adresse copiée'}catch(e){cp.textContent='sarrabzouich@gmail.com'}};
+/* certifications */
+const BADGE=`<svg viewBox="0 0 400 283" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="bg2" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#4a1222"/><stop offset="1" stop-color="#0c0809"/></radialGradient></defs><rect width="400" height="283" fill="url(#bg2)"/><circle cx="200" cy="120" r="70" fill="none" stroke="#e8607f" stroke-width="2" stroke-dasharray="4 5"/><circle cx="200" cy="120" r="56" fill="#8c1c3a"/><text x="200" y="132" text-anchor="middle" font-family="Inter Tight,Inter,sans-serif" font-weight="700" font-size="34" fill="#fff">CSWP</text><text x="200" y="230" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" letter-spacing="3" fill="#f6c9d4">SOLIDWORKS PROFESSIONAL</text></svg>`;
+const CERTS=[
+ {st:['CERTIFIÉE','CERTIFIED'],img:null,lab:'SolidWorks',t:'Certified SOLIDWORKS Professional',d:['Conception mécanique 3D avancée : pièces complexes, assemblages et modifications de conception.','Advanced 3D mechanical design: complex parts, assemblies and design changes.'],f:['CSWP',['CONCEPTION MÉCANIQUE','MECHANICAL DESIGN']]},
+ {st:['CERTIFIÉE · 01/2025','CERTIFIED · 01/2025'],img:'cert-cswa.jpg',lab:'SolidWorks',t:'Certified SOLIDWORKS Associate',d:['Bases de la CAO 3D et de la conception mécanique. Examen académique passé à l’ENISo.','3D CAD and mechanical design fundamentals. Academic exam taken at ENISo.'],f:['CSWA · C-WXFMK6V4PB',['CAO','CAD']]},
+ {st:['CERTIFIÉE · 09/2026','CERTIFIED · 09/2026'],img:'cert-am.jpg',lab:'SolidWorks',t:'SOLIDWORKS Additive Manufacturing Associate',d:['Conception et préparation de pièces pour la fabrication additive.','Designing and preparing parts for additive manufacturing.'],f:['C-FPGC2KTM57',['FABRICATION ADDITIVE','ADDITIVE MANUFACTURING']]},
+ {st:['CERTIFIÉE · 09/2026','CERTIFIED · 09/2026'],img:'cert-sust.jpg',lab:'SolidWorks',t:'SOLIDWORKS Sustainability Associate',d:['Écoconception : évaluer l’impact environnemental d’une pièce dès la phase de conception.','Eco-design: assessing a part’s environmental impact from the design stage.'],f:['C-DGK94JLWRB',['ÉCOCONCEPTION','ECO-DESIGN']]},
+ {st:['OBTENU · 06/2026','ACHIEVED · 06/2026'],img:'cert-toeic.jpg',lab:'ETS · AMIDEAST Sousse',t:'TOEIC 960 / 990',d:['Listening 495 · Reading 465 : un anglais professionnel de niveau C1.','Listening 495 · Reading 465: professional English at C1 level.'],f:['TOEIC L&R',['ANGLAIS','ENGLISH']]}
+];
+const ctrack=document.getElementById('ctrack'),cdlg=document.getElementById('certdlg'),cimg=cdlg.querySelector('img');
+const renderCerts=()=>{ctrack.innerHTML=CERTS.map((c,i)=>`<article class="cc"><div class="top"><span>0${i+1}</span><b>${tr(c.st)}</b></div><button type="button" class="img" data-c="${i}" aria-label="${c.t}">${c.img?`<img src="${c.img}" alt="${c.t}" loading="lazy">`:BADGE}</button><div class="lab">${c.lab}</div><h3>${c.t}</h3><p>${tr(c.d)}</p><div class="foot"><span>${c.f[0]}</span><span>${tr(c.f[1])}</span></div></article>`).join('')};
+renderCerts();
+ctrack.addEventListener('click',e=>{const b=e.target.closest('.img');if(!b)return;const c=CERTS[+b.dataset.c];if(!c.img)return;cimg.src=c.img;cimg.alt=c.t;try{cdlg.showModal()}catch(err){cdlg.setAttribute('open','')}});
+cdlg.querySelector('.x').onclick=()=>cdlg.close();cdlg.addEventListener('click',e=>{if(e.target===cdlg)cdlg.close()});
+const cstep=d=>{const c=ctrack.querySelector('.cc');ctrack.scrollBy({left:d*(c.offsetWidth+24),behavior:'smooth'})};
+document.getElementById('cprev').onclick=()=>cstep(-1);document.getElementById('cnext').onclick=()=>cstep(1);
 /* cv */
 const cvd=document.getElementById('cvdlg'),openCv=()=>{try{cvd.showModal()}catch(e){cvd.setAttribute('open','')}};
 document.getElementById('cvopen').onclick=openCv;const t2=document.getElementById('cvopen2');t2.onclick=openCv;t2.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();openCv()}};
